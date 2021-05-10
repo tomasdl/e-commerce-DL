@@ -32,9 +32,9 @@ return (
         <MenuIcon />
       </IconButton>
       <Typography variant="h6" className={classes.title}>
-        News
+        Astillero Lef
       </Typography>
-      <Button color="inherit" className="login">Login</Button>
+      <Button color="inherit">Login</Button>
     </Toolbar>
   </AppBar>
 )}
