@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import NavBar from './components/NavBar.js';
+import ItemListContainer from './components/ItemListContainer.js';
 
 function App() {
   return (
@@ -9,6 +9,7 @@ function App() {
       <header>
         <NavBar/>
       </header>
+      <ItemListContainer greeting="Soy un h1 dentro de un div"/>
     </div>
   );
 }

@@ -8,6 +8,7 @@ import {
   Button
 }from'@material-ui/core';
 import MenuIcon from '@material-ui/icons/Menu';
+import ShoppingCart from './CartWidget'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -33,6 +34,7 @@ return (
       <Typography variant="h6" className={classes.title}>
         Astillero Lef
       </Typography>
+      <ShoppingCart/>
       <Button color="inherit">Login</Button>
     </Toolbar>
   </AppBar>
