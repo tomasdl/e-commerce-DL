@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js';
+import ItemCount from './components/ItemCount.js';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
         <NavBar/>
       </header>
       <ItemListContainer greeting="Soy una prop"/>
+      <ItemCount/>
     </div>
   );
 }
