@@ -10,8 +10,8 @@ function App() {
       <header>
         <NavBar/>
       </header>
-      <ItemListContainer greeting="Soy una prop"/>
-      <ItemCount/>
+      <ItemListContainer greeting="Carrito"/>
+      <ItemCount stock="4" initial="1"/>
     </div>
   );
 }

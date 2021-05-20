@@ -2,16 +2,16 @@ import {React, useState } from "react";
 import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
-const ItemCount = () => {
+const ItemCount = ({stock, initial}) => {
     const [count, setCount]=useState(1);
-    const handleChange = (add) => {
-        setCount(count + add);
+    const onAdd = (add) => {
+        (stock >= count + add) && (0 <= count + add) ? setCount(count + add) : console.log("Error"); 
     }
     return (
         <div>
-            <button onClick={()=> handleChange(1)}><AddIcon/></button>
+            <button onClick={() => onAdd(1)}><AddIcon/></button>
             <h5>{count}</h5>
-            <button onClick={()=>handleChange(-1)}><RemoveIcon/></button>
+            <button onClick={() => onAdd(-1)}><RemoveIcon/></button>
         </div>
     )
 }
