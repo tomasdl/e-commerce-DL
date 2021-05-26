@@ -5,18 +5,27 @@ const productos = [
     {
         id: 1,
         title: "Lechuga",
-        color: "Verde",  
-        price: 50
+        color: "Mantecosa",  
+        price: 50,
+        img:"https://images.unsplash.com/photo-1448030081970-b7d1ae923ed6?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1334&q=80"
     }, {
         id: 2,
         title: "Tomate",
-        color: "Rojo",  
-        price: 100
+        color: "Perita",  
+        price: 100,
+        img: "https://images.unsplash.com/photo-1557863467-1cba853b8649?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
     }, {
         id: 3,
         title: "Banana",
         color: "Amarilla",  
-        price: 150
+        price: 150,
+        img: "https://images.unsplash.com/photo-1603052875302-d376b7c0638a?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=967&q=80"
+},{
+    id: 4,
+        title: "Manzana",
+        color: "Deliciosa",  
+        price: 120,
+        img: "https://images.unsplash.com/photo-1611574474484-ced6cb70a2cf?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
 }];
 const ItemListContainer = () =>{
     const [array, setArray] = useState();
