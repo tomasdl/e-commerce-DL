@@ -1,0 +1,10 @@
+.container{
+    display: flex;
+    width: 10em;
+    justify-content: space-around;
+}
+
+.shop:link, .shop:visited  {
+color: #fdf5f5;
+}
+

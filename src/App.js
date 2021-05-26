@@ -10,8 +10,8 @@ function App() {
       <header>
         <NavBar/>
       </header>
-      <ItemListContainer greeting="Carrito"/>
-      <ItemCount stock="4" initial="1"/>
+      <ItemListContainer/>
+      <ItemCount stock={4} initial={1}/>
     </div>
   );
 }

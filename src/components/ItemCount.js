@@ -3,15 +3,17 @@ import AddIcon from '@material-ui/icons/Add';
 import RemoveIcon from '@material-ui/icons/Remove';
 
 const ItemCount = ({stock, initial}) => {
-    const [count, setCount]=useState(1);
+    const [count, setCount]=useState(initial);
     const onAdd = (add) => {
-        (stock >= count + add) && (0 <= count + add) ? setCount(count + add) : console.log("Error"); 
+        if ( (stock >= count + add) && (0 <= count + add) ) {
+            setCount(count + add)
+        }; 
     }
     return (
-        <div>
-            <button onClick={() => onAdd(1)}><AddIcon/></button>
+        <div className="container">
+            <button id="counter" onClick={() => onAdd(-1)}><RemoveIcon/></button>
             <h5>{count}</h5>
-            <button onClick={() => onAdd(-1)}><RemoveIcon/></button>
+            <button id="counter" onClick={() => onAdd(1)}><AddIcon/></button>
         </div>
     )
 }
