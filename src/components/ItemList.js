@@ -1,12 +1,11 @@
 import React from 'react';
+import Item from './Item';
 const ItemList = ({producto}) =>{
 
     return (
-        <ul>
-            {producto?.map(elem => <li>{elem.title}</li>)}
-            {producto?.map(elem => <li>{elem.color}</li>)}
-            {producto?.map(elem => <li>{elem.price}</li>)}
-        </ul>
+        <div>
+            {producto?.map(elem =><Item title={elem.title} color={elem.color} price={"$" + elem.price} />)}
+        </div>
     )
 }
 export default ItemList;

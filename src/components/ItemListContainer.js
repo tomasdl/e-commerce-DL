@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import {React,useEffect, useState} from 'react';
 import ItemList from './ItemList';
 
 const productos = [
@@ -20,16 +20,17 @@ const productos = [
 }];
 const ItemListContainer = () =>{
     const [array, setArray] = useState();
-
-    const demand = new Promise ((resolve) => {
-    setTimeout(() => {
-        resolve(productos);
-    }, 2000);
+    useEffect(()=>{
+        const demand = new Promise ((resolve) => {
+        setTimeout(() => {
+            resolve(productos);
+        }, 2000);
+        });
+        demand.then(result => {
+            setArray(result);
+        })
     });
-    demand.then(result => {
-        setArray(result);
-    })
-
+        console.log("hola")
     return(
         <ItemList producto={array}/>
         )
