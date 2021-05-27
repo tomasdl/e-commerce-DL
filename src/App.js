@@ -3,6 +3,7 @@ import './App.css';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import ItemDetailContainer from './components/ItemDetailContainer';
 
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
         <NavBar/>
       </header>
       <ItemListContainer/>
+      <ItemDetailContainer/>
     </div>
   );
 }
