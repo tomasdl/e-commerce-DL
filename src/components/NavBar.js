@@ -1,25 +1,38 @@
-import React from 'react';
-import Container from 'react-bootstrap/Container';
-import Navbar from 'react-bootstrap/Navbar';
-import Form from 'react-bootstrap/Form';
-import FormControl from 'react-bootstrap/FormControl';
-import Button from 'react-bootstrap/Button';
-import ShoppingCart from './CartWidget'
-
+import React from "react";
+import Container from "react-bootstrap/Container";
+import {
+  Navbar,
+  Nav,
+  NavDropdown,
+  Form,
+  FormControl,
+  Button
+        } from "react-bootstrap";
+import ShoppingCart from "./CartWidget";
 
 const NavBar = () => {
   return (
     <Container fluid>
-      <Navbar bg="primary" variant="dark" className="d-flex justify-content-between">
+      <Navbar bg="primary" variant= "dark" expand="lg" className="d-flex justify-content-between">
         <Navbar.Brand href="#home">Verduleria</Navbar.Brand>
-        <Form inline className="d-flex justify-content-around">
+        <Navbar.Toggle aria-controls="basic-navbar-nav" />
+        <Navbar.Collapse id="basic-navbar-nav">
+          <Nav className="mr-auto">
+            <NavDropdown title="Productos" id="basic-nav-dropdown">
+              <NavDropdown.Item href="#action/3.1">Frutas</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.2">Verduras</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Legumbres</NavDropdown.Item>
+            </NavDropdown>
+          </Nav>
+        </Navbar.Collapse>
           <ShoppingCart/>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-info">Search</Button>
-        </Form>
+          <Form className="d-flex">
+            <FormControl type="text" placeholder="Buscar" className="mr-auto" />
+            <Button variant="success" >Buscar</Button>
+          </Form>
       </Navbar>
     </Container>
-  )
-}
+  );
+};
 
 export default NavBar;

@@ -1,28 +1,34 @@
-import React from 'react';
-import ItemCount from './ItemCount.js';
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import ItemCount from "./ItemCount.js";
+// import Card from "react-bootstrap/Card";
+import Media from 'react-bootstrap/Media';
 
-
-const ItemDetail = ({detalle}) => {
-
+const ItemDetail = ({ detalle }) => {
+  return detalle?.map((detail) => {
     return (
-        detalle?.map(detail => {
-
-            return( <Card style={{ width: '18rem' }}>
-                    <Card.Img variant="top" src={detail.foto} alt={detail.id} />
-                    <Card.Body>
-                        <Card.Title>{detail.name}</Card.Title>
-                        <Card.Text>
-                        {detail.description}
-                        </Card.Text>
-                        <Card.Text>
-                        {detail.precio}
-                        </Card.Text>
-                        <ItemCount  stock={detail.stock} initial={1}/>
-                    </Card.Body>
-                </Card>)
-        })
-    )
-}
+      <Media className="d-flex m-5">
+        <img
+          width={200}
+          height={200}
+          className="mr-3"
+          src={detail.foto}
+          alt={detail.id}
+        />
+        <Media.Body className="m-3">
+          <h5>{detail.name}</h5>
+          <p>
+          {detail.description}
+          </p>
+          <p>
+          {detail.precio}
+          </p>
+          <p>
+          <ItemCount stock={detail.stock} initial={0} />
+          </p>
+        </Media.Body>
+      </Media>
+    );
+  });
+};
 
 export default ItemDetail;
