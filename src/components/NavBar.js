@@ -9,19 +9,33 @@ import {
   Button
         } from "react-bootstrap";
 import ShoppingCart from "./CartWidget";
+import {Link} from 'react-router-dom';
 
 const NavBar = () => {
+  const categories = [
+    { address: '/', text: 'Home'},
+    { address: '/category/frutas', text: 'Frutas' },
+    { address: '/category/verduras', text: 'Verduras' },
+    { address: '/category/legumbres', text: 'Legumbres' }
+  ]
   return (
     <Container fluid>
       <Navbar bg="primary" variant= "dark" expand="lg" className="d-flex justify-content-between">
-        <Navbar.Brand href="#home">Verduleria</Navbar.Brand>
+        <Navbar.Brand as={Link} to={"/"}>Verduleria</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <NavDropdown title="Productos" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Frutas</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">Verduras</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Legumbres</NavDropdown.Item>
+              {categories.map(cat => {
+                return (
+                  <NavDropdown.Item
+                  key={cat.key}
+                  as={Link}
+                  to={cat.address}>
+                    {cat.text}
+                  </NavDropdown.Item>
+                )
+              })}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

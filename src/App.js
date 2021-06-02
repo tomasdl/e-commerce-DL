@@ -10,15 +10,19 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 function App() {
   return (
     <BrowserRouter>
-      <NavBar/>
+    <NavBar/>
       <Switch>
         <Route exact path="/">
           <ItemListContainer/>
         </Route>
-        <Route exact path="/productos/prodID">
-            <ItemDetailContainer/>
+        <Route exact path="/category/:catId">
+          <ItemListContainer/>
+        </Route>
+        <Route exact path="/item/:prodId">
+          <ItemDetailContainer/>
         </Route>
       </Switch>
+    {/* <Footer/> */}
     </BrowserRouter>
   );
 }
