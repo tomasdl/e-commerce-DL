@@ -9,11 +9,12 @@ const ItemList = ({ producto }) => {
         {producto?.map((elem) => (
           <Col>
             <Item
-              key={elem.id}
               title={elem.name}
               price={"$" + elem.precio}
               img={elem.foto}
               stock={elem.stock}
+              key={elem.id}
+              id={elem.id}
             />
           </Col>
         ))}

@@ -1,14 +1,19 @@
 import React from "react";
 import ItemCount from "./ItemCount";
+import {Link} from 'react-router-dom';
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
-const Item = ({ title, price, img, stock}) => {
+const Item = ({ title, price, img, stock, id}) => {
   return (
     <Card style={{ width: "18rem" }}>
       <Card.Img variant="top" src={img} />
       <Card.Body className="text-center">
-        <Card.Title>{title}</Card.Title>
+        <Card.Title
+          as={Link}
+          to={`/item/1284${id}`}>
+          {title}
+        </Card.Title>
         <Card.Text>
           {price} x kg
           <ItemCount stock={stock} initial={0} />

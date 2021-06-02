@@ -15,7 +15,7 @@ const ItemListContainer = () => {
   useEffect(() => {
     
     const demand = new Promise((resolve) => {
-      setLoading(true)
+      setLoading(true);
       setTimeout(() => {
         resolve(data);
       }, 2000);

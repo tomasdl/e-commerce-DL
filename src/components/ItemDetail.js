@@ -8,8 +8,8 @@ const ItemDetail = ({ detalle }) => {
     return (
       <Media className="d-flex m-5">
         <img
-          width={200}
-          height={200}
+          width={500}
+          height={500}
           className="mr-3"
           src={detail.foto}
           alt={detail.id}
@@ -20,7 +20,7 @@ const ItemDetail = ({ detalle }) => {
           {detail.description}
           </p>
           <p>
-          {detail.precio}
+          ${detail.precio}
           </p>
           <p>
           <ItemCount stock={detail.stock} initial={0} />
