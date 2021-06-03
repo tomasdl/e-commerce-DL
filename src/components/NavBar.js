@@ -14,9 +14,9 @@ import {Link} from 'react-router-dom';
 const NavBar = () => {
   const categories = [
     { address: '/', text: 'Home'},
-    { address: '/category/frutas', text: 'Frutas' },
-    { address: '/category/verduras', text: 'Verduras' },
-    { address: '/category/legumbres', text: 'Legumbres' }
+    { address: '/category/frutas', text: 'Frutas', id:"1"},
+    { address: '/category/verduras', text: 'Verduras', id:"2"},
+    { address: '/category/legumbres', text: 'Legumbres', id:"3"}
   ]
   return (
     <Container fluid>
@@ -29,9 +29,9 @@ const NavBar = () => {
               {categories.map(cat => {
                 return (
                   <NavDropdown.Item
-                  key={cat.key}
                   as={Link}
-                  to={cat.address}>
+                  to={cat.address}
+                  key={cat.id}>
                     {cat.text}
                   </NavDropdown.Item>
                 )

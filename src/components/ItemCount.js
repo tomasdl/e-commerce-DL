@@ -22,7 +22,7 @@ const ItemCount = ({ stock, initial }) => {
         </svg>
       </button>
 
-      <p>{count}</p>
+      <span>{count}</span>
       <button id="counter" onClick={() => onAdd(1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

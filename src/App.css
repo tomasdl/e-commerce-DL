@@ -8,3 +8,15 @@
 color: #fdf5f5;
 }
 
+.itemLink{
+    text-decoration: none;
+    color: #222;
+}
+
+.addToCartDiv{
+    margin: 10px;
+}
+
+.cards{
+    margin-top: 10px;
+}

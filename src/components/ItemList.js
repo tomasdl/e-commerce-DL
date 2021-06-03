@@ -7,13 +7,12 @@ const ItemList = ({ producto }) => {
     <Container>
       <Row>
         {producto?.map((elem) => (
-          <Col>
+          <Col key={elem.id}>
             <Item
               title={elem.name}
               price={"$" + elem.precio}
               img={elem.foto}
               stock={elem.stock}
-              key={elem.id}
               id={elem.id}
             />
           </Col>

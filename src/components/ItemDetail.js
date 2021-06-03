@@ -1,7 +1,8 @@
 import React from "react";
 import ItemCount from "./ItemCount.js";
-// import Card from "react-bootstrap/Card";
+import Card from "react-bootstrap/Card";
 import Media from 'react-bootstrap/Media';
+import Button from "react-bootstrap/Button";
 
 const ItemDetail = ({ detalle }) => {
   return detalle?.map((detail) => {
@@ -15,16 +16,25 @@ const ItemDetail = ({ detalle }) => {
           alt={detail.id}
         />
         <Media.Body className="m-3">
-          <h5>{detail.name}</h5>
-          <p>
-          {detail.description}
-          </p>
-          <p>
-          ${detail.precio}
-          </p>
-          <p>
-          <ItemCount stock={detail.stock} initial={0} />
-          </p>
+          <Card style={{ width: '60rem' },{height:'30rem'}}>
+            <Card.Body className="text-center">
+              <Card.Title><Card.Text className="h3">{detail.name}</Card.Text></Card.Title>
+              <Card.Text className="lead ml-2 mr-3">
+                {detail.description}
+              </Card.Text>
+              <Card.Text className="h1">
+                ${detail.precio}
+              </Card.Text>
+              <Card.Text className="h3">
+                <ItemCount stock={detail.stock} initial={0}/>
+              </Card.Text>
+              <Card.Text className="addToCartDiv">
+                <Button variant="outline-success" onClick={() => {}} id={detail.id}>
+                Agregar al Carrito
+                </Button>
+              </Card.Text>
+            </Card.Body>
+          </Card>
         </Media.Body>
       </Media>
     );
