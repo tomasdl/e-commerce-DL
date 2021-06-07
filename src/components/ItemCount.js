@@ -1,15 +1,15 @@
-import { React, useState } from "react";
+import { React} from "react";
 
-const ItemCount = ({ stock, initial }) => {
-  const [count, setCount] = useState(initial);
-  const onAdd = (add) => {
-    if (stock >= count + add && 0 <= count + add) {
-      setCount(count + add);
+const ItemCount = ({ stock, quantity, setQuantity }) => {
+  const plus = (add) => {
+    if (stock >= quantity + add && 0 <= quantity + add) {
+      setQuantity(quantity + add);
     }
   };
+
   return (
     <div className="container">
-      <button id="counter" onClick={() => onAdd(-1)}>
+      <button id="counter" onClick={() => plus(-1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -22,8 +22,9 @@ const ItemCount = ({ stock, initial }) => {
         </svg>
       </button>
 
-      <span>{count}</span>
-      <button id="counter" onClick={() => onAdd(1)}>
+      <span>{quantity}</span>
+
+      <button id="counter" onClick={() => plus(1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"

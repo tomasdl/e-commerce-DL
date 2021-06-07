@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState } from "react";
+import { NavLink } from "react-router-dom";
 import ItemCount from "./ItemCount.js";
 import Card from "react-bootstrap/Card";
-import Media from 'react-bootstrap/Media';
+import Media from "react-bootstrap/Media";
 import Button from "react-bootstrap/Button";
 
 const ItemDetail = ({ detalle }) => {
+  // 
+  const [quantityToAdd, setQuantityToAdd] = useState(0); 
+  const [addedToCart, setAddedToCart] = useState(false);
+  const onAdd = () => {
+    if (quantityToAdd !== 0) {setAddedToCart(true)};
+    console.log(quantityToAdd);
+  };
+
   return detalle?.map((detail) => {
     return (
       <Media className="d-flex m-5">
@@ -16,23 +25,37 @@ const ItemDetail = ({ detalle }) => {
           alt={detail.id}
         />
         <Media.Body className="m-3">
-          <Card style={{ width: '60rem' },{height:'30rem'}}>
+          <Card style={({ width: "60rem" }, { height: "30rem" })}>
             <Card.Body className="text-center">
-              <Card.Title><Card.Text className="h3">{detail.name}</Card.Text></Card.Title>
+              <Card.Title>
+                <Card.Text className="h3">{detail.name}</Card.Text>
+              </Card.Title>
               <Card.Text className="lead ml-2 mr-3">
                 {detail.description}
               </Card.Text>
-              <Card.Text className="h1">
-                ${detail.precio}
-              </Card.Text>
-              <Card.Text className="h3">
-                <ItemCount stock={detail.stock} initial={0}/>
-              </Card.Text>
-              <Card.Text className="addToCartDiv">
-                <Button variant="outline-success" onClick={() => {}} id={detail.id}>
-                Agregar al Carrito
-                </Button>
-              </Card.Text>
+              <Card.Text className="h1">${detail.precio}</Card.Text>
+              {addedToCart ? (
+                <Button as={NavLink} to='/cart'> Terminar Compra </Button>
+              ) : (
+                <>
+                  <Card.Text className="h3">
+                    <ItemCount
+                      stock={detail.stock}
+                      quantity={quantityToAdd}
+                      setQuantity={setQuantityToAdd}
+                    />
+                  </Card.Text>
+                  <Card.Text className="addToCartDiv">
+                    <Button
+                      variant="outline-success"
+                      id={detail.id}
+                      onClick={onAdd}
+                    >
+                      Agregar al Carrito
+                    </Button>
+                  </Card.Text>
+                </>
+              )}
             </Card.Body>
           </Card>
         </Media.Body>

@@ -9,21 +9,24 @@ import ItemDetailContainer from './components/ItemDetailContainer';
 
 function App() {
   return (
-    <BrowserRouter>
-    <NavBar/>
-      <Switch>
-        <Route exact path="/">
-          <ItemListContainer/>
-        </Route>
-        <Route path="/category/:catId">
-          <ItemListContainer/>
-        </Route>
-        <Route path="/item/:prodId">
-          <ItemDetailContainer/>
-        </Route>
-      </Switch>
-    {/* <Footer/> */}
-    </BrowserRouter>
+      <BrowserRouter>
+      <NavBar/>
+        <Switch>
+          <Route exact path="/">
+            <ItemListContainer/>
+          </Route>
+          <Route path="/category/:catId">
+            <ItemListContainer/>
+          </Route>
+          <Route path="/item/:prodId">
+            <ItemDetailContainer/>
+          </Route>
+          <Route path="/cart">
+            
+          </Route>
+        </Switch>
+      {/* <Footer/> */}
+      </BrowserRouter>
   );
 }
 
