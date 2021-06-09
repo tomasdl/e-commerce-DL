@@ -1,12 +1,8 @@
 import React from "react";
-import Container from "react-bootstrap/Container";
 import {
   Navbar,
   Nav,
   NavDropdown,
-  Form,
-  FormControl,
-  Button
         } from "react-bootstrap";
 import ShoppingCart from "./CartWidget";
 import {Link} from 'react-router-dom';
@@ -19,7 +15,6 @@ const NavBar = () => {
     { address: '/category/legumbres', text: 'Legumbres', id:"3"}
   ]
   return (
-    <Container fluid>
       <Navbar bg="primary" variant= "dark" expand="lg" className="d-flex justify-content-between">
         <Navbar.Brand as={Link} to={"/"}>Verduleria</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -40,12 +35,7 @@ const NavBar = () => {
           </Nav>
         </Navbar.Collapse>
           <ShoppingCart/>
-          <Form className="d-flex">
-            <FormControl type="text" placeholder="Buscar" className="mr-auto" />
-            <Button variant="success" >Buscar</Button>
-          </Form>
       </Navbar>
-    </Container>
   );
 };
 

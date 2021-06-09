@@ -4,15 +4,25 @@ import ItemCount from "./ItemCount.js";
 import Card from "react-bootstrap/Card";
 import Media from "react-bootstrap/Media";
 import Button from "react-bootstrap/Button";
+import { useCart } from "../contexts/cartContext";
 
 const ItemDetail = ({ detalle }) => {
-  // 
-  const [quantityToAdd, setQuantityToAdd] = useState(0); 
+  const { shoppingCartContent, addItem, clearShoppingCartContent } = useCart();
+
+  const [quantityToAdd, setQuantityToAdd] = useState(0);
   const [addedToCart, setAddedToCart] = useState(false);
-  const onAdd = () => {
-    if (quantityToAdd !== 0) {setAddedToCart(true)};
-    console.log(quantityToAdd);
+
+  const onAdd = (evt) => {
+    if (quantityToAdd !== 0) {
+      setAddedToCart(true);
+    }
+    detalle?.map((detail) => {
+      return (
+        detail.id === parseInt(evt.target.id) && addItem(detail, quantityToAdd)
+      );
+    });
   };
+  console.log({ shoppingCartContent });
 
   return detalle?.map((detail) => {
     return (
@@ -34,8 +44,12 @@ const ItemDetail = ({ detalle }) => {
                 {detail.description}
               </Card.Text>
               <Card.Text className="h1">${detail.precio}</Card.Text>
+
               {addedToCart ? (
-                <Button as={NavLink} to='/cart'> Terminar Compra </Button>
+                <Button as={NavLink} to="/cart" onClick={clearShoppingCartContent}>
+                  
+                  Terminar Compra
+                </Button>
               ) : (
                 <>
                   <Card.Text className="h3">
