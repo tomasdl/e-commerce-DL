@@ -38,13 +38,13 @@ export const CartProvider = ({ children }) => {
     }
   };
   // funcion que remueve un producto clickeado
-  const remove = (clickeado) => {
-    const removeAddedItem = (objClicked) =>
-      addedItems_item.filter(
-        (product) => parseInt(product.id) !== objClicked.id
-      );
-    setShoppingCartContent(removeAddedItem(clickeado));
-  };
+//   const remove = (clickeado) => {
+//     const removeAddedItem = (objClicked) =>
+//       addedItems_item.filter(
+//         (product) => parseInt(product.id) !== objClicked.id
+//       );
+//     setShoppingCartContent(removeAddedItem(clickeado));
+//   };
 
   // funcion que limpia el carrito
   const clearShoppingCartContent = () => {
