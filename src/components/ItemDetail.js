@@ -7,11 +7,12 @@ import Button from "react-bootstrap/Button";
 import { useCart } from "../contexts/cartContext";
 
 const ItemDetail = ({ detalle }) => {
-  const { shoppingCartContent, addItem, clearShoppingCartContent } = useCart();
+  const { shoppingCartContent, addItem } = useCart();
 
   const [quantityToAdd, setQuantityToAdd] = useState(0);
   const [addedToCart, setAddedToCart] = useState(false);
 
+  // funcion agregar al carrito
   const onAdd = (evt) => {
     if (quantityToAdd !== 0) {
       setAddedToCart(true);
@@ -46,8 +47,7 @@ const ItemDetail = ({ detalle }) => {
               <Card.Text className="h1">${detail.precio}</Card.Text>
 
               {addedToCart ? (
-                <Button as={NavLink} to="/cart" onClick={clearShoppingCartContent}>
-                  
+                <Button as={NavLink} to="/cart">
                   Terminar Compra
                 </Button>
               ) : (
