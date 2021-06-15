@@ -20,3 +20,15 @@ color: #fdf5f5;
 .cards{
     margin-top: 10px;
 }
+
+.shop:after{
+    content:attr(value);
+    font-size:18px;
+    background: red;
+    border-radius:50%;
+    padding:3px;
+    position:relative;
+    left:-8px;
+    top:-10px;
+    opacity:0.9;
+    }

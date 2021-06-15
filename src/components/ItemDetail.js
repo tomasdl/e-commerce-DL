@@ -7,7 +7,7 @@ import Button from "react-bootstrap/Button";
 import { useCart } from "../contexts/cartContext";
 
 const ItemDetail = ({ detalle }) => {
-  const { shoppingCartContent, addItem } = useCart();
+  const { addItem } = useCart();
 
   const [quantityToAdd, setQuantityToAdd] = useState(0);
   const [addedToCart, setAddedToCart] = useState(false);
@@ -23,7 +23,6 @@ const ItemDetail = ({ detalle }) => {
       );
     });
   };
-  console.log({ shoppingCartContent });
 
   return detalle?.map((detail) => {
     return (
@@ -47,9 +46,14 @@ const ItemDetail = ({ detalle }) => {
               <Card.Text className="h1">${detail.precio}</Card.Text>
 
               {addedToCart ? (
-                <Button as={NavLink} to="/cart">
+                <>
+                <Button variant="success"as={NavLink} to="/cart">
                   Terminar Compra
+                </Button><br/>
+                <Button variant ="primary" as={NavLink} to="/">
+                  Continuar Compra
                 </Button>
+                </>
               ) : (
                 <>
                   <Card.Text className="h3">

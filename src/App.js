@@ -2,9 +2,10 @@ import React from 'react';
 import './App.css';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/ItemListContainer.js';
+import ItemDetailContainer from './components/ItemDetailContainer';
+import Cart from './components/Cart';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ItemDetailContainer from './components/ItemDetailContainer';
 import {CartProvider} from './contexts/cartContext';
 
 
@@ -24,7 +25,7 @@ function App() {
             <ItemDetailContainer/>
           </Route>
           <Route path="/cart">
-            
+            <Cart/>
           </Route>
         </Switch>
       {/* <Footer/> */}

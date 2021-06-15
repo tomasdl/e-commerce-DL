@@ -19,31 +19,44 @@ export const CartProvider = ({ children }) => {
     );
 
   // funcion Agregar Al Carrito (con item y cantidad)
-  const addItem = (newAddedItem, newQuantity) => {
+  const addItem = (newAddedItem, newAddedQuantity) => {
     // no permite ingresar si cantidad es 0
-    if (newQuantity) {
+    if (newAddedQuantity) {
       // si el indice del producto que matchea su id con el id del producto clickeado es mayor que 0 (si no matchea ninguno es -1), entonces existe Match.
       if (findItem(newAddedItem) >= 0) {
-        shoppingCartContent[findItem(newAddedItem)].quantity += newQuantity;
+        shoppingCartContent[findItem(newAddedItem)].quantity +=
+          newAddedQuantity;
         // sino existe, lo agrega
       } else {
         setShoppingCartContent([
           ...shoppingCartContent,
           {
             item: newAddedItem,
-            quantity: newQuantity,
+            quantity: newAddedQuantity,
           },
         ]);
       }
     }
   };
-  // funcion que remueve un producto clickeado
-  const remove = (clickeado) => {
-    const removeAddedItem = (objClicked) =>
-      addedItems_item.filter(
-        (product) => parseInt(product.id) !== objClicked.id
+
+  // funcion que reduce un kg de producto clickeado
+
+  const remove_1 = (itemRemoved) => {
+    if (shoppingCartContent[findItem(itemRemoved)].quantity > 1) {
+      setShoppingCartContent(
+        [...shoppingCartContent],
+        (shoppingCartContent[findItem(itemRemoved)].quantity -= 1)
       );
-    setShoppingCartContent(removeAddedItem(clickeado));
+      // console.log(shoppingCartContent);
+    }
+  };
+
+  // funcion que elimina el item clickeado
+  const remove_item = (itemRemoved) => {
+    const newCart = shoppingCartContent.filter(
+      (elem) => elem !== shoppingCartContent[findItem(itemRemoved)]
+    );
+    setShoppingCartContent(newCart);
   };
 
   // funcion que limpia el carrito
@@ -51,13 +64,26 @@ export const CartProvider = ({ children }) => {
     setShoppingCartContent(initial_state);
   };
 
+  const totalPrice = shoppingCartContent?.reduce(
+    (acumulador, item) => acumulador + item.item.precio * item.quantity,
+    0
+  );
+
+  const totalItems = shoppingCartContent?.reduce(
+    (acumulador, item) => acumulador + item.quantity,
+    0
+  );
+
   return (
     <CartContext.Provider
       value={{
         shoppingCartContent,
         addItem,
         clearShoppingCartContent,
-        remove,
+        remove_1,
+        remove_item,
+        totalPrice,
+        totalItems,
       }}
     >
       {children}
