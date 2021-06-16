@@ -36,6 +36,7 @@ const Cart = () => {
               {elem.quantity > 1 ? (
                 <>
                   <Button
+                   key={elem.id}
                     variant="secondary"
                     onClick={() => remove_1(elem.item)}
                   >
@@ -50,6 +51,7 @@ const Cart = () => {
                 </>
               ) : (
                 <Button
+                key={elem.id}
                   variant="warning"
                   onClick={() => remove_item(elem.item)}
                 >

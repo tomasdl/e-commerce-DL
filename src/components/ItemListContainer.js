@@ -1,6 +1,7 @@
 import { React, useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
+import { getFirestore } from '../firebase';
 import data from "../mockaroo.json";
 import Spinner from "react-bootstrap/Spinner";
 
@@ -11,8 +12,8 @@ const ItemListContainer = () => {
 
   useEffect(() => {
     const demand = new Promise((resolve) => {
-      setLoading(true);
       setTimeout(() => {
+        setLoading(true);
         resolve(data);
       }, 2000);
     });

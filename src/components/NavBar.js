@@ -36,7 +36,7 @@ const NavBar = () => {
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>
-      {shoppingCartContent.length !==0 ? <ShoppingCart /> : null}
+      {shoppingCartContent.length !== 0 ? <ShoppingCart /> : null}
     </Navbar>
   );
 };

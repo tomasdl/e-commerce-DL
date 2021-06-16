@@ -26,6 +26,7 @@ export const CartProvider = ({ children }) => {
       if (findItem(newAddedItem) >= 0) {
         shoppingCartContent[findItem(newAddedItem)].quantity +=
           newAddedQuantity;
+        setShoppingCartContent([...shoppingCartContent]);
         // sino existe, lo agrega
       } else {
         setShoppingCartContent([

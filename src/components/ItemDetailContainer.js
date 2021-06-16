@@ -18,7 +18,7 @@ const ItemDetailContainer = () => {
 
     prodId
       ? getItems.then((res) => {
-          setDatos(res.filter((i) => `${i.id}` === prodId.slice(-2)));
+          setDatos(res.filter((i) => `${i.id}` === prodId));
           setLoading(false);
         })
       : getItems.then((result) => {

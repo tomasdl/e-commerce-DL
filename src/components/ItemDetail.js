@@ -26,7 +26,7 @@ const ItemDetail = ({ detalle }) => {
 
   return detalle?.map((detail) => {
     return (
-      <Media className="d-flex m-5">
+      <Media key={detail.id} className="d-flex m-5">
         <img
           width={500}
           height={500}
@@ -34,7 +34,7 @@ const ItemDetail = ({ detalle }) => {
           src={detail.foto}
           alt={detail.id}
         />
-        <Media.Body className="m-3">
+        <Media.Body key={detail.id} className="m-3">
           <Card style={({ width: "60rem" }, { height: "30rem" })}>
             <Card.Body className="text-center">
               <Card.Title>
@@ -47,17 +47,19 @@ const ItemDetail = ({ detalle }) => {
 
               {addedToCart ? (
                 <>
-                <Button variant="success"as={NavLink} to="/cart">
-                  Terminar Compra
-                </Button><br/>
-                <Button variant ="primary" as={NavLink} to="/">
-                  Continuar Compra
-                </Button>
+                  <Button variant="success" as={NavLink} to="/cart">
+                    Terminar Compra
+                  </Button>
+                  <br />
+                  <Button variant="primary" as={NavLink} to="/">
+                    Continuar Compra
+                  </Button>
                 </>
               ) : (
                 <>
                   <Card.Text className="h3">
                     <ItemCount
+                      key={detail.id}
                       stock={detail.stock}
                       quantity={quantityToAdd}
                       setQuantity={setQuantityToAdd}
