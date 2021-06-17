@@ -26,7 +26,7 @@ const Cart = () => {
             <Card.Body>
               <Card.Title>{elem.item.name}</Card.Title>
               <Card.Text>Precio por kg ${elem.item.precio}</Card.Text>
-              <Card.Text>Cantidad de kg: {elem.quantity}kg</Card.Text>
+              <Card.Text>Cantidad de kg: {elem.quantity}</Card.Text>
 
               <Card.Text>
                 Precio parcial ${elem.item.precio * elem.quantity}

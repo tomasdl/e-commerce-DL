@@ -8,7 +8,7 @@ const ItemCount = ({ stock, quantity, setQuantity }) => {
   };
 
   return (
-    <span className="container">
+    <span className="container" style={{ width: "18rem" }}>
       <button id="counter" onClick={() => plus(-1)}>
         <svg
           xmlns="http://www.w3.org/2000/svg"

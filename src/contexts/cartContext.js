@@ -9,26 +9,23 @@ export const CartProvider = ({ children }) => {
 
   const [shoppingCartContent, setShoppingCartContent] = useState(initial_state);
 
-  
   // armo un array con todos los productos agregados al carrito
   const addedItems_item = shoppingCartContent.map((elem) => elem.item);
-  
+
   // funcion que encuentra el indice del producto en el carrito que matchea su id con el id del producto clickeado
   const findItem = (objClciked) =>
-  addedItems_item.findIndex(
-    (product) => product.id === objClciked.id
-    );
-    
-    // funcion Agregar Al Carrito (con item y cantidad)
-    const addItem = (newAddedItem, newAddedQuantity) => {
-      // no permite ingresar si cantidad es 0
-      if (newAddedQuantity) {
-        // si el indice del producto que matchea su id con el id del producto clickeado es mayor que 0 (si no matchea ninguno es -1), entonces existe Match.
-        if (findItem(newAddedItem) >= 0) {
-          shoppingCartContent[findItem(newAddedItem)].quantity +=
+    addedItems_item.findIndex((product) => product.id === objClciked.id);
+
+  // funcion Agregar Al Carrito (con item y cantidad)
+  const addItem = (newAddedItem, newAddedQuantity) => {
+    // no permite ingresar si cantidad es 0
+    if (newAddedQuantity) {
+      // si el indice del producto que matchea su id con el id del producto clickeado es mayor que 0 (si no matchea ninguno es -1), entonces existe Match.
+      if (findItem(newAddedItem) >= 0) {
+        shoppingCartContent[findItem(newAddedItem)].quantity +=
           newAddedQuantity;
-          setShoppingCartContent([...shoppingCartContent]);
-          // sino existe, lo agrega
+        setShoppingCartContent([...shoppingCartContent]);
+        // sino existe, lo agrega
       } else {
         setShoppingCartContent([
           ...shoppingCartContent,
