@@ -13,7 +13,6 @@ const Cart = () => {
     totalItems,
   } = useCart();
 
-  console.log(shoppingCartContent);
   return (
     <>
       {shoppingCartContent[0]?.quantity ? (
@@ -23,7 +22,7 @@ const Cart = () => {
       ) : null}
       {shoppingCartContent.map((elem) => {
         return (
-          <Card key={elem.id} style={{ width: "18rem" }}>
+          <Card key={elem.item.id} style={{ width: "18rem" }}>
             <Card.Body>
               <Card.Title>{elem.item.name}</Card.Title>
               <Card.Text>Precio por kg ${elem.item.precio}</Card.Text>
@@ -36,7 +35,6 @@ const Cart = () => {
               {elem.quantity > 1 ? (
                 <>
                   <Button
-                   key={elem.id}
                     variant="secondary"
                     onClick={() => remove_1(elem.item)}
                   >
@@ -51,7 +49,6 @@ const Cart = () => {
                 </>
               ) : (
                 <Button
-                key={elem.id}
                   variant="warning"
                   onClick={() => remove_item(elem.item)}
                 >

@@ -1,8 +1,7 @@
 import { React, useEffect, useState } from "react";
 import ItemList from "./ItemList";
 import { useParams } from "react-router-dom";
-import { getFirestore } from '../firebase';
-import data from "../mockaroo.json";
+import { getFirestore } from "../firebase/index";
 import Spinner from "react-bootstrap/Spinner";
 
 const ItemListContainer = () => {
@@ -11,22 +10,28 @@ const ItemListContainer = () => {
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
-    const demand = new Promise((resolve) => {
-      setTimeout(() => {
-        setLoading(true);
-        resolve(data);
-      }, 2000);
-    });
-
-    catId
-      ? demand.then((res) => {
-          setArray(res.filter((i) => i.categoria === catId));
-          setLoading(false);
-        })
-      : demand.then((res) => {
-          setArray(res);
-          setLoading(false);
-        });
+    setLoading(true);
+    const database = getFirestore();
+    const itemCollection = database.collection("productos");
+    const misDatos = catId
+      ? itemCollection.where("categoria", "==", catId)
+      : itemCollection;
+    misDatos
+      .get()
+      .then((datas) => {
+        setArray(
+          datas.docs.map((doc) => {
+            const fullData = { id: doc.id, ...doc.data() };
+            return fullData;
+          })
+        );
+      })
+      .catch((error) => {
+        console.log("Error searching items", error);
+      })
+      .finally(() => {
+        setLoading(false);
+      });
   }, [catId]);
 
   return loading ? (

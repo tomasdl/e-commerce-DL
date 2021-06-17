@@ -28,7 +28,7 @@ const NavBar = () => {
           <NavDropdown title="Productos" id="basic-nav-dropdown">
             {categories.map((cat) => {
               return (
-                <NavDropdown.Item as={Link} to={cat.address} key={cat.id}>
+                <NavDropdown.Item  as={Link} to={cat.address} key={cat.address}>
                   {cat.text}
                 </NavDropdown.Item>
               );

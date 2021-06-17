@@ -1,11 +1,11 @@
-import React, {useState} from "react";
+import React from "react";
 // import ItemCount from "./ItemCount";
 import { NavLink } from "react-router-dom";
 import Card from "react-bootstrap/Card";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
 const Item = ({ title, price, img, stock, id }) => {
-  const [stockChanger, setStockChanger] = useState(stock);
+  
   return (
     <Card key={id} style={{ width: "18rem" }} className="cards">
       <Card.Img variant="top" src={img} />
@@ -16,7 +16,7 @@ const Item = ({ title, price, img, stock, id }) => {
           </NavLink>
         </Card.Title>
         <Card.Text>{price} x Kg</Card.Text>
-        <Card.Text>{stockChanger} Kg disponibles</Card.Text>
+        <Card.Text>{stock} Kg disponibles</Card.Text>
         {/* <Card.Text>
           <ItemCount
             stock={stock}

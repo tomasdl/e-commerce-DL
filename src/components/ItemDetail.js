@@ -13,75 +13,74 @@ const ItemDetail = ({ detalle }) => {
   const [addedToCart, setAddedToCart] = useState(false);
 
   // funcion agregar al carrito
-  const onAdd = (evt) => {
+  const onAdd = () => {
     if (quantityToAdd !== 0) {
       setAddedToCart(true);
     }
     detalle?.map((detail) => {
-      return (
-        detail.id === parseInt(evt.target.id) && addItem(detail, quantityToAdd)
-      );
+      return addItem(detail, quantityToAdd);
     });
   };
-
-  return detalle?.map((detail) => {
-    return (
-      <Media key={detail.id} className="d-flex m-5">
-        <img
-          width={500}
-          height={500}
-          className="mr-3"
-          src={detail.foto}
-          alt={detail.id}
-        />
-        <Media.Body key={detail.id} className="m-3">
-          <Card style={({ width: "60rem" }, { height: "30rem" })}>
-            <Card.Body className="text-center">
-              <Card.Title>
-                <Card.Text className="h3">{detail.name}</Card.Text>
-              </Card.Title>
-              <Card.Text className="lead ml-2 mr-3">
-                {detail.description}
-              </Card.Text>
-              <Card.Text className="h1">${detail.precio}</Card.Text>
-
-              {addedToCart ? (
-                <>
-                  <Button variant="success" as={NavLink} to="/cart">
-                    Terminar Compra
-                  </Button>
-                  <br />
-                  <Button variant="primary" as={NavLink} to="/">
-                    Continuar Compra
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Card.Text className="h3">
-                    <ItemCount
-                      key={detail.id}
-                      stock={detail.stock}
-                      quantity={quantityToAdd}
-                      setQuantity={setQuantityToAdd}
-                    />
+  return detalle
+    ? detalle?.map((detail) => {
+        return (
+          <Media key={detail.id} className="d-flex m-5">
+            <img
+              width={500}
+              height={500}
+              className="mr-3"
+              src={detail.foto}
+              alt={detail.id}
+            />
+            <Media.Body key={detail.id} className="m-3">
+              <Card style={({ width: "60rem" }, { height: "30rem" })}>
+                <Card.Body className="text-center">
+                  <Card.Title>
+                    <Card.Text className="h3">{detail.name}</Card.Text>
+                  </Card.Title>
+                  <Card.Text className="lead ml-2 mr-3">
+                    {detail.description}
                   </Card.Text>
-                  <Card.Text className="addToCartDiv">
-                    <Button
-                      variant="outline-success"
-                      id={detail.id}
-                      onClick={onAdd}
-                    >
-                      Agregar al Carrito
-                    </Button>
-                  </Card.Text>
-                </>
-              )}
-            </Card.Body>
-          </Card>
-        </Media.Body>
-      </Media>
-    );
-  });
+                  <Card.Text className="h1">${detail.precio}</Card.Text>
+
+                  {addedToCart ? (
+                    <>
+                      <Button variant="success" as={NavLink} to="/cart">
+                        Terminar Compra
+                      </Button>
+                      <br />
+                      <Button variant="primary" as={NavLink} to="/">
+                        Continuar Compra
+                      </Button>
+                    </>
+                  ) : (
+                    <>
+                      <Card.Text className="h3">
+                        <ItemCount
+                          key={detail.id}
+                          stock={detail.stock}
+                          quantity={quantityToAdd}
+                          setQuantity={setQuantityToAdd}
+                        />
+                      </Card.Text>
+                      <Card.Text className="addToCartDiv">
+                        <Button
+                          variant="outline-success"
+                          id={detail.id}
+                          onClick={onAdd}
+                        >
+                          Agregar al Carrito
+                        </Button>
+                      </Card.Text>
+                    </>
+                  )}
+                </Card.Body>
+              </Card>
+            </Media.Body>
+          </Media>
+        );
+      })
+    : null;
 };
 
 export default ItemDetail;
