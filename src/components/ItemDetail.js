@@ -46,7 +46,7 @@ const ItemDetail = ({ detalle }) => {
                   {addedToCart ? (
                     <>
                       <Button variant="success" as={NavLink} to="/cart">
-                        Terminar Compra
+                        Ir al Carrito
                       </Button>
                       <br />
                       <Button variant="primary" as={NavLink} to="/">
@@ -82,5 +82,14 @@ const ItemDetail = ({ detalle }) => {
       })
     : null;
 };
+
+// const alreadyAddedItem = shoppingCartCOntent.find() // esto lo comparas con la variable que tenes en el map;
+// En la prop:
+// alreadyAddedItem={alreadyAddedItem ? alreadyAddedItem.quantity : 0}
+// En la prop:
+// alreadyAddedItem={ shoppingCartCOntent.find()
+//  ?  shoppingCartCOntent.find().quantity : 0}
+
+
 
 export default ItemDetail;

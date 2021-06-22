@@ -7,6 +7,7 @@ import Cart from "./components/Cart";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 import { CartProvider } from "./contexts/cartContext";
+import EndPoint from "./components/EndPoint";
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
           </Route>
           <Route path="/cart">
             <Cart />
+          </Route>
+          <Route path="/EndPoint">
+            <EndPoint />
           </Route>
         </Switch>
         {/* <Footer/> */}
