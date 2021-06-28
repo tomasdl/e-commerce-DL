@@ -20,7 +20,7 @@ const NavBar = () => {
       className="d-flex justify-content-between"
     >
       <Navbar.Brand as={Link} to={"/"}>
-        Verduleria
+        Almacén de vegetales
       </Navbar.Brand>
       <Navbar.Toggle aria-controls="basic-navbar-nav" />
       <Navbar.Collapse id="basic-navbar-nav">

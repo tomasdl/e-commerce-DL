@@ -1,12 +1,12 @@
-# Verduleria De Luca
+# Almacén de Vegetales
 ​
-Verduleria De Luca es un e-commerce orientado a la venta de productos de verduleria como frutas, verduras y legumbres.
+## _The Last Markdown Editor, Ever_ es un e-commerce orientado a la venta de productos de verduleria como frutas, verduras y legumbres.
 
 Cuenta con
 ​
---Una barra de navegacion con widget de carrito de compras y un menu para ir a cada categoria de productos, utilizando react-router-dom.
--- Catalogo completo de productos con opcion de ir a cada uno para agregar al carrito.
--- Vista completa del producto y sus detalles con la opcion de agregar una determinada cantidad al carrito.
+-Una barra de navegacion con widget de carrito de compras y un menu para ir a cada categoria de productos, utilizando react-router-dom.
+- Catalogo completo de productos con opcion de ir a cada uno para agregar al carrito.
+- Vista completa del producto y sus detalles con la opcion de agregar una determinada cantidad al carrito.
 
 ​
 ## Instalación
@@ -20,6 +20,7 @@ Cuenta con
    ```
 ​
     para instalar todas las dependecias del proyecto
+
 ​
 3. Usá 
 ​
@@ -42,7 +43,9 @@ Uso de FireBase para persistencia de datos
 
 ## Aplicación en funcionamiento
 ​
-![Verduleria De Luca en funcionamiento]()
+![Verduleria De Luca en funcionamiento](
+    
+)
 ​
 ​
 ​
