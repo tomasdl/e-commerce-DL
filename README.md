@@ -1,10 +1,10 @@
 # Almacén de Vegetales
 ​
-## _The Last Markdown Editor, Ever_ es un e-commerce orientado a la venta de productos de verduleria como frutas, verduras y legumbres.
+## _Almacén de Vegetales_ es un e-commerce orientado a la venta de productos de verduleria como frutas, verduras y legumbres.
 
 Cuenta con
 ​
--Una barra de navegacion con widget de carrito de compras y un menu para ir a cada categoria de productos, utilizando react-router-dom.
+- Una barra de navegacion con widget de carrito de compras y un menu para ir a cada categoria de productos, utilizando react-router-dom.
 - Catalogo completo de productos con opcion de ir a cada uno para agregar al carrito.
 - Vista completa del producto y sus detalles con la opcion de agregar una determinada cantidad al carrito.
 
@@ -43,9 +43,7 @@ Uso de FireBase para persistencia de datos
 
 ## Aplicación en funcionamiento
 ​
-![Verduleria De Luca en funcionamiento](
-    
-)
+    https://github.com/tomasdl/e-commerce-DL/blob/main/almacenDeVegetales.gif
 ​
 ​
 ​
