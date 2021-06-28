@@ -1,5 +1,6 @@
 import { React, useState, useEffect } from "react";
 import ItemDetail from "./ItemDetail.js";
+import NotFound from "./NotFound";
 import { useParams } from "react-router-dom";
 import Spinner from "react-bootstrap/Spinner";
 import { getFirestore } from "../firebase/index.js";
@@ -26,8 +27,10 @@ const ItemDetailContainer = () => {
   }, [prodId]);
   return loading ? (
     <Spinner animation="border" variant="primary" />
-  ) : (
+  ) : datos && datos[0].precio ? (
     <ItemDetail detalle={datos} />
+  ) : (
+    <NotFound />
   );
 };
 export default ItemDetailContainer;

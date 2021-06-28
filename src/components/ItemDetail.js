@@ -90,6 +90,4 @@ const ItemDetail = ({ detalle }) => {
 // alreadyAddedItem={ shoppingCartCOntent.find()
 //  ?  shoppingCartCOntent.find().quantity : 0}
 
-
-
 export default ItemDetail;

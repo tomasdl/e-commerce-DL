@@ -48,13 +48,42 @@ const Cart = () => {
   const [user, setUser] = useState({
     name: "",
     surname: "",
+    telefono: "",
     email: "",
+    reemail: "",
   });
 
   const inputs = [
-    { label: "Nombre", name: "name", placeholder: "Nombre" },
-    { label: "Apellido", name: "surname", placeholder: "Apellido" },
-    { label: "Email", name: "email", placeholder: "example@example.com" },
+    {
+      label: "Nombre",
+      name: "name",
+      type: "text",
+      placeholder: "Ingrese su nombre",
+    },
+    {
+      label: "Apellido",
+      name: "surname",
+      type: "text",
+      placeholder: "Ingrese su apellido",
+    },
+    {
+      label: "Telefono",
+      name: "telefono",
+      type: "text",
+      placeholder: "Ingrese su telefono",
+    },
+    {
+      label: "E-mail",
+      name: "email",
+      type: "email",
+      placeholder: "Ingrese su E-mail",
+    },
+    {
+      label: "Reingrese su E-mail",
+      name: "reemail",
+      type: "email",
+      placeholder: "Reingrese su E-mail",
+    },
   ];
 
   function getUser(event) {
@@ -144,11 +173,11 @@ const Cart = () => {
           </Modal.Header>
           <Modal.Body>
             <Form>
-              {inputs.map(({ label, name, placeholder }) => (
+              {inputs.map(({ label, name, type, placeholder }) => (
                 <Form.Group key={name} controlId={name}>
                   <Form.Label>{label}</Form.Label>
                   <Form.Control
-                    type="text"
+                    type={type}
                     value={user[name]}
                     name={name}
                     placeholder={placeholder}
@@ -162,7 +191,20 @@ const Cart = () => {
             <Button variant="secondary" onClick={handleClose}>
               Cancelar
             </Button>
-            <Button variant="primary" onClick={uploadOrders}>
+            <Button
+              disabled={
+                !(
+                  user.name &&
+                  user.surname &&
+                  user.telefono &&
+                  user.email &&
+                  user.reemail &&
+                  user.email === user.reemail
+                )
+              }
+              variant="primary"
+              onClick={uploadOrders}
+            >
               Finalizar Orden
             </Button>
           </Modal.Footer>
